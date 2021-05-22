@@ -1,8 +1,11 @@
 a:hover{
     text-decoration:none;
     margin-left: 5px;
+    
+    
 }
 a{
     background-color: chocolate;
     color: white;
+    text-align: center;
 }

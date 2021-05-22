@@ -1,6 +1,6 @@
 <div class="wrapper">
     <h4 class="text-uppercase">Payment Details</h4>
-    <form class="form mt-4">
+    <form class="form mt-4" (ngSubmit)=onplace()>
         <div class="form-group">
             <label for="name" class="text-uppercase">name on the card</label>
             <input type="text" class="form-control" placeholder="Nicolos Flemming">
@@ -41,7 +41,7 @@
             <label for="details" class="px-sm-2 pl-2 pt-sm-0 pt-2">Save my details for future purchases</label>
         </div>
         <div class="my-3">
-            <input type="submit" value="place your order" class="text-uppercase btn btn-primary btn-block p-3">
+            <input type="submit" value="place your order" class="text-uppercase btn btn-primary btn-block p-3" >
         </div>
         <div id="form-footer">
             <p>By placing your order, you agree to our</p>

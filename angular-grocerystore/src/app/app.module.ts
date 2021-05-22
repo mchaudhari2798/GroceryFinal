@@ -17,6 +17,7 @@ import { RegistrationlistComponent } from './Components/registrationlist/registr
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './Components/login/login.component';
 import { PaymentComponent } from './Components/payment/payment.component';
+import { SweetalertComponent } from './sweetalert/sweetalert.component';
 
 const routes:Routes=[
 {path:'groceries',component:GroceryListComponent},
@@ -56,7 +57,8 @@ const routes:Routes=[
     RegistrationlistComponent,
     LoginComponent,
     FooterComponent,
-    PaymentComponent
+    PaymentComponent,
+    SweetalertComponent
   //   PageNotFoundComponent
   ],
   imports: [

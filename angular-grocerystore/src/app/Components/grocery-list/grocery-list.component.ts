@@ -65,19 +65,16 @@ export class GroceryListComponent implements OnInit {
     this._cartservice.addToCart(cartItems);
 
     // this.router.navigate(['/cart'])
-
-    
-    
+   
   }
-  // handleSearchGategory(){
-  //  const keyword:String= this._activatedRoute.snapshot.paramMap.get('keyword');
-  //  this._groceryservice.searchGrocery(keyword).subscribe(
-  //    data=>{
-  //      console.log(data);
-  // }
-  // )
+  onBuy(grocery:Grocery){
+    console.log( `grocery.name:${grocery.name},and price:${grocery.unitprice}`);
+    const cartItems=new CartItem(grocery);
+    this._cartservice.addToCart(cartItems);
 
-  // }
+    this.router.navigate(['/cart'])
+   
+  }
     
   }
 
