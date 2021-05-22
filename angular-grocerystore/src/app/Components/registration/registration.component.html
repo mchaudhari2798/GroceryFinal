@@ -1,0 +1,84 @@
+<p>registration works!</p>
+
+<div class="container">
+	<h1 style="text-align: center;">Registration Form</h1>
+
+	<div class="card bg-light">
+		<article class="card-body mx-auto" style="max-width: 400px;">
+			<h4 class="card-title mt-3 text-center">Create Account</h4>
+			<p class="text-center">Get started with your free account</p>
+			<p>
+				<a href="" class="btn btn-block btn-twitter"> <i class="fab fa-twitter"></i>   Login via Twitter</a>
+				<a href="https://touch.facebook.com/?_rdr" class="btn btn-block btn-facebook"> <i class="fab fa-facebook-f"></i>   Login via facebook</a>
+			</p>
+			<p class="divider-text">
+				<span class="bg-light">OR</span>
+			</p>
+
+			<form #userForm="ngForm" (ngSubmit)="onSubmit()">
+				<div class="form-group input-group">
+					<div class="input-group-prepend">
+						<span class="input-group-text"> <i class="fa fa-user"></i> </span>
+					</div>
+					<input name="username" class="form-control" placeholder="User name" type="text" 
+					#name="ngModel" [(ngModel)]="registration.userName"  [class.is-invalid]="name.invalid && name.touched" required minlength="5" />
+
+					<small class="text-danger" [class.d-none]="name.untouched || name.valid">This is required field</small>
+
+				</div><br> <!-- form-group// -->
+				<div class="form-group input-group">
+					<div class="input-group-prepend">
+						<span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+					</div>
+					<input name="email" class="form-control" placeholder="Email address" type="email"
+					#email="ngModel" [(ngModel)]="registration.email"  [class.is-invalid]="email.invalid && email.touched" required minlength="5" />
+					<small class="text-danger" [class.d-none]="email.untouched || email.valid">This is required field</small>
+
+				</div><br> <!-- form-group// -->
+				
+				<div class="form-group input-group">
+					<div class="input-group-prepend">
+						<span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+					</div>
+					<input class="form-control" placeholder="Create password" type="password" name="password"
+					#password="ngModel" [(ngModel)]="registration.password"  [class.is-invalid]="password.invalid && password.touched" required minlength="5" />
+					<small class="text-danger" [class.d-none]="password.untouched || password.valid">This is required field</small>
+				</div> <br><!-- form-group// -->
+
+				<div class="form-group input-group">
+					<div class="input-group-prepend">
+						<span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+					</div>
+
+					<select class="custom-select" style="max-width: 120px;">
+						<option selected="">+91</option>
+						<option value="1">+61</option>
+						<option value="2">+975</option>
+						<option value="3">+92</option>
+					</select>
+					<input name="phone" class="form-control" placeholder="Phone number" type="text"
+					#phone="ngModel" [(ngModel)]="registration.phoneNo"  [class.is-invalid]="phone.invalid && phone.touched" required minlength="10" />
+					<small class="text-danger" [class.d-none]="phone.untouched || phone.valid">This is required field</small><br>
+					<div class="text-danger" [class.d-none]="phone.untouched || phone.valid">Enter 10 digits</div>
+				</div><br> 
+
+				<div class="form-group input-group">
+					<div class="input-group-prepend">
+						<span class="input-group-text"> <i class="fa fa-map-pin"></i> </span>
+					</div>
+					<input class="form-control" placeholder="Enter Address" type="text" name="address"
+					#address="ngModel" [(ngModel)]="registration.address"  [class.is-invalid]="address.invalid && address.touched" required/>
+					<small class="text-danger" [class.d-none]="address.untouched || address.valid">This is required field</small>
+				</div> <br> <!-- form-group// -->
+				<div class="form-group">
+					<button type="submit" class="btn btn-primary btn-block" [disabled]="!userForm.valid" > Create Account </button>
+				</div> <!-- form-group// -->
+				<p class="text-center">Have an account? <a href="" routerLink="/loginpage">Log In</a> </p>
+			</form>
+		</article>
+	</div> <!-- card.// -->
+
+</div>
+<!--container end.//-->
+<hr>
+

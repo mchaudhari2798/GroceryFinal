@@ -1,0 +1,20 @@
+<table border="1" class="table">
+    <thead>
+        <tr>
+            <th>Images</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let grocery of grocerys">
+            <td>
+                <img [src]="grocery.imgeurl" height="50"/>
+            </td>
+            <td>{{grocery.name}}</td>
+            <td>{{grocery.description}}</td>
+            <td>{{grocery.unitprice | currency:'INR'}}</td>
+        </tr>
+    </tbody>
+</table> 
