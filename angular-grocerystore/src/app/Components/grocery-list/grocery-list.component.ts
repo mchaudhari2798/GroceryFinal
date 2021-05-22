@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Grocery } from 'src/app/common/grocery';
 import { GroceryService } from 'src/app/services/grocery.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import { ThisReceiver } from '@angular/compiler';
 import { CartService } from 'src/app/services/cart.service';
 import { CartItem } from 'src/app/common/cart-item';
@@ -20,9 +20,10 @@ export class GroceryListComponent implements OnInit {
   searchMode!: boolean;
 
   constructor(private _groceryservice:GroceryService,
-  private _activatedRoute:ActivatedRoute,
-  private _cartservice:CartService)
-   { }
+      private _activatedRoute:ActivatedRoute,
+      private _cartservice:CartService,
+      private router:Router
+      )   { }
     
   ngOnInit(){
       
@@ -62,6 +63,10 @@ export class GroceryListComponent implements OnInit {
     console.log( `grocery.name:${grocery.name},and price:${grocery.unitprice}`);
     const cartItems=new CartItem(grocery);
     this._cartservice.addToCart(cartItems);
+
+    // this.router.navigate(['/cart'])
+
+    
     
   }
   // handleSearchGategory(){

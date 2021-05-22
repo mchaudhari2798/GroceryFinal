@@ -16,12 +16,15 @@ import { RegistrationComponent } from './Components/registration/registration.co
 import { RegistrationlistComponent } from './Components/registrationlist/registrationlist.component';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './Components/login/login.component';
+import { PaymentComponent } from './Components/payment/payment.component';
 
 const routes:Routes=[
 {path:'groceries',component:GroceryListComponent},
 {path:'cart-details',component:CartDetailsComponent},
 {path:'search/:keyword',component:GroceryListComponent},
 {path:'category/:id',component:GroceryListComponent},
+{ path:'cart', component:CartDetailsComponent},
+{path:'payment',component:PaymentComponent},
 {path:'',redirectTo:'/groceries',pathMatch:'full'},
 
 
@@ -52,7 +55,8 @@ const routes:Routes=[
     RegistrationComponent,   
     RegistrationlistComponent,
     LoginComponent,
-    FooterComponent
+    FooterComponent,
+    PaymentComponent
   //   PageNotFoundComponent
   ],
   imports: [

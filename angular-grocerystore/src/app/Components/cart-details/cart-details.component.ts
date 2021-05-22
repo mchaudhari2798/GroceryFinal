@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CartItem } from 'src/app/common/cart-item';
 import { CartService } from 'src/app/services/cart.service';
 
@@ -14,7 +15,8 @@ export class CartDetailsComponent implements OnInit {
   totalQuantity:number=0;
 
 
-  constructor(private _cartservice:CartService) { }
+  constructor(private _cartservice:CartService,
+        private router:Router) { }
 
   ngOnInit(){
     this.cartDetails();
@@ -32,4 +34,18 @@ export class CartDetailsComponent implements OnInit {
     this._cartservice.calculateTotalPrice();
   }
 
+  onClick(){
+    this.router.navigate(['/payment'])
+  }
+
+  setQnt(type: string, i: number){
+    if(type === 'add'){
+      this.cartItems[i].quantity++;
+      this._cartservice.calculateTotalPrice();
+    }
+    else if(type === 'remove'){
+      this.cartItems[i].quantity--;
+      this._cartservice.calculateTotalPrice();
+    }
+  }
 }

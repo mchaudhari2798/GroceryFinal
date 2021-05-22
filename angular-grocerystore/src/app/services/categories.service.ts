@@ -6,12 +6,12 @@ import { HttpClient} from '@angular/common/http'
 })
 export class CategoriesService {
    
-  // private listall = "http://localhost:8080/Categories/";
+  
 
   constructor( private http : HttpClient) { }
 
   getAllCategories(){
-    return this.http.get<any>('http://localhost:8080/Categories/all');
+    return this.http.get<any>('http://localhost:9090/grocery-category/');
   }
 
   getAllProducts(){

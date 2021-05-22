@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CategoriesService } from 'src/app/services/categories.service';
 
 @Component({
   selector: 'app-grocery-category',
@@ -6,11 +7,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./grocery-category.component.css']
 })
 export class GroceryCategoryComponent implements OnInit {
-  groceries:any
+  
+  category_name: any;
 
-  constructor() { }
+    
+    constructor(private catService:CategoriesService) { }
 
   ngOnInit(): void {
-  }
+
+    this.catService.getAllCategories()
+    .subscribe(x => {
+      console.log(x)
+      this.category_name = x._embedded.groceryCategory;
+    });
 
 }
+
+
+  }
+  // http://localhost:9090/grocery-category
+
